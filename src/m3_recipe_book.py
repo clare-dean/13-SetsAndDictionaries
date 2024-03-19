@@ -35,6 +35,34 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def create_recipe_book():
+    recipes = [] 
+    print("Welcome to Recipe Book!")
+    while True:
+        recipe = {} 
+        recipe_name = input("Please enter a recipe name (or 'end' to finish): ")
+        if recipe_name == 'end':
+            break  
+        recipe["name"] = recipe_name  
+        ingredients = set()  
+        while True:
+            ingredient = input("Please enter an ingredient (or 'end' to finish): ")
+            if ingredient == 'end':
+                break  
+            ingredients.add(ingredient)  
+        recipe["ingredients"] = ingredients 
+        recipes.append(recipe)  
+    recipe_number = 1
+    for recipe in recipes:
+        print(f"\nRecipe {recipe_number}:")
+        print(f"Name: {recipe['name']}")
+        print("Ingredients:")
+        for ingredient in recipe['ingredients']:
+            print(f"- {ingredient}")
+        recipe_number += 1
+    return recipes
+    
+
 
 ###############################################################################
 # TODO: 2. EXTRA CREDIT (2 pts)
